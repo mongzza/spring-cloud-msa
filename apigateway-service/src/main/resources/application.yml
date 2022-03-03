@@ -30,4 +30,9 @@ spring:
           predicates:
             - Path=/second-service/**
           filters:
-            - CustomFilter
+            - name: CustomFilter # fitler 한 개만 쓸거면 바로 사용하면 되지만, 여러개 쓸거면 name 키 명시
+            - name: LoggingFilter
+              args:
+                baseMessage: Logging for Second service.
+                preLogger: true
+                postLogger: true
