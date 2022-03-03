@@ -2,7 +2,6 @@ package com.dami.firstservice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,9 +15,8 @@ public class FirstServiceController {
         return "Welcome to the First service.";
     }
     
-    @GetMapping("/message")
-    public String message(@RequestHeader("first-request") String header) {
-        log.info(header);
-        return "Hello world in First service.";
+    @GetMapping("/check")
+    public String check() {
+        return "This is CustomFilter of First service.";
     }
 }
