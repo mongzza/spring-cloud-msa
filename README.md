@@ -25,6 +25,7 @@ User service of E-commerce
 
 ### Branch
 - section4/user-microservice
+- section4/spring-security
 
 ### Keywords
 - MSA에서의 트랜잭션 처리 방법
@@ -38,3 +39,6 @@ User service of E-commerce
 - TC
 - ModelMapper 라이브러리와 final 키워드
 - ModelMapperUtils의 ModelMapper를 싱글톤으로 사용 -> Bean 등록?
+- BCryptPasswordEncoder 빈 등록 시점
+  - UserServiceApplication에서 등록했을 때와 WebSecurity에서 등록했을 때의 차이
+  - 전자는 EntityListener에서 빈 주입이 가능하고 후자는 불가능
