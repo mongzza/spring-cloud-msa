@@ -15,8 +15,6 @@ API Gateway Service with filter and load balancing
 - section2/custom-filter-for-second
 - section2/gateway-loadbalancer
 
-다음 섹션부터는 1섹션 1브랜치하고, 강의 소제목을 커밋메시지로 사용
-
 ### Keywords
 - Round-robin
   - 프로세스에 일정시간을 할당하고, 할당된 시간이 지나면 그 프로세스는 잠시 보류한 뒤 다른 프로세스에게 기회를 주고, 또 그 다음 프로세스에게 하는 식으로, 돌아가며 기회를 부여하는 운영방식
@@ -34,6 +32,7 @@ User service of E-commerce
 - Event Souring
 - CQRS
 - Service mesh
+- Click jacking
 
 ### TODO
 - TC
