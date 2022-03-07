@@ -25,6 +25,12 @@ spring:
             - Path=/user-service/**
           filters:
             - CustomFilter
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/catalog-service/**
+          filters:
+            - CustomFilter
         - id: first-service
           uri: lb://MY-FIRST-SERVICE  # 특정 ip:port로 고정하는 것이 아니라 서비스명을 명시하여 해당 서비스의 여러 서버에 대해 로드밸런싱
           predicates:
