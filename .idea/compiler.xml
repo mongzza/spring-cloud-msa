@@ -12,10 +12,12 @@
         <module name="apigateway-service" />
         <module name="discovery-service" />
         <module name="second-service" />
+        <module name="catalog-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="apigateway-service" target="11" />
+      <module name="catalog-service" target="11" />
       <module name="discovery-service" target="11" />
       <module name="first-service" target="11" />
       <module name="second-service" target="11" />
@@ -25,6 +27,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="apigateway-service" options="-parameters" />
+      <module name="catalog-service" options="-parameters" />
       <module name="discovery-service" options="-parameters" />
       <module name="first-service" options="-parameters" />
       <module name="second-service" options="-parameters" />
