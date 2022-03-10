@@ -23,7 +23,7 @@ API Gateway Service with filter and load balancing
 ## Section4
 User service of E-commerce
 
-### Branch
+### Branches
 - section4/user-microservice
 - section4/spring-security
 
@@ -42,3 +42,11 @@ User service of E-commerce
 - BCryptPasswordEncoder 빈 등록 시점
   - UserServiceApplication에서 등록했을 때와 WebSecurity에서 등록했을 때의 차이
   - 전자는 EntityListener에서 빈 주입이 가능하고 후자는 불가능
+
+## Section5
+User service, Category service and Order service
+
+### Branches
+- section5/user-microservice
+- section5/category-microservice
+- section5/order-microservice
