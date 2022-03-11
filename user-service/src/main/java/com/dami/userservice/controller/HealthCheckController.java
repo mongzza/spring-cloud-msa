@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/user-service")
+@RequestMapping("/")
 public class HealthCheckController {
     
     private final Environment env;

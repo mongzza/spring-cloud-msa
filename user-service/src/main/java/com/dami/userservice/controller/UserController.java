@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/user-service")
+@RequestMapping("/")
 public class UserController {
     
     private final Greeting greeting;
