@@ -2,6 +2,7 @@ package com.dami.userservice.jpa;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,6 +14,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class CryptoColumn {
     
+    @Getter
     private String encryptedValue;
     private String decryptedValue;
     

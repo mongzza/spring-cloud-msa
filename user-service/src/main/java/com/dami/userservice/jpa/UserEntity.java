@@ -3,6 +3,7 @@ package com.dami.userservice.jpa;
 import com.dami.userservice.dto.UserDto;
 import com.dami.userservice.jpa.listener.EntityCryptoListener;
 import com.dami.userservice.util.ModelMapperUtils;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -40,5 +41,13 @@ public class UserEntity extends BaseEntity implements Cryptable {
     
     public CryptoColumn getCryptoColumn() {
         return pwd;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public String getEncryptedPassword() {
+        return pwd.getEncryptedValue();
     }
 }

@@ -6,18 +6,30 @@ import com.dami.userservice.jpa.UserEntity;
 import com.dami.userservice.jpa.UserRepository;
 import com.dami.userservice.util.ModelMapperUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
     
     private final UserRepository userRepository;
+    
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity findUser = userRepository.findByEmail(username)
+                                            .orElseThrow(() -> new UsernameNotFoundException(username));
+        return new User(findUser.getEmail(), findUser.getEncryptedPassword(),
+                        true, true, true, true,
+                        new ArrayList<>());
+    }
     
     public UserDto createUser(UserDto userDto) {
         UserEntity savedUser = userRepository.save(UserEntity.from(userDto));
