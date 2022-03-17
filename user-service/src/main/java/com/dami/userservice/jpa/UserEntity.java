@@ -50,4 +50,9 @@ public class UserEntity extends BaseEntity implements Cryptable {
     public String getEncryptedPassword() {
         return pwd.getEncryptedValue();
     }
+    
+    // UserEntity -> UserDto를 ModelMapper 사용해서 변경 시, pwd의 암호화된 패스워드 값을 UserDto에 넘겨야 하므로 아래 매소드 정의
+    public String getPwd() {
+        return pwd.getEncryptedValue();
+    }
 }

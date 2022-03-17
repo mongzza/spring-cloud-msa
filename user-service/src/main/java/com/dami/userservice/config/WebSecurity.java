@@ -4,6 +4,7 @@ import com.dami.userservice.config.filter.AuthenticationFilter;
 import com.dami.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,6 +18,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final Environment env;
     
     /**
      * 권한 관련 설정
@@ -40,10 +42,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     }
     
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
-        AuthenticationFilter filter = new AuthenticationFilter();
-        filter.setAuthenticationManager(authenticationManager());
-        
-        return filter;
+        return new AuthenticationFilter(authenticationManager(), userService, env);
     }
     
     /**

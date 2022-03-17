@@ -45,10 +45,16 @@ public class UserService implements UserDetailsService {
         return userDto;
     }
     
-    public List<UserDto> getUserByAll() {
+    public List<UserDto> getAllUsers() {
         return userRepository.findAll()
                              .stream()
                              .map(user -> ModelMapperUtils.map(user, UserDto.class))
                              .collect(Collectors.toList());
+    }
+    
+    public UserDto getUserDetailsByEmail(String email) {
+        return userRepository.findByEmail(email)
+                             .map(user -> ModelMapperUtils.map(user, UserDto.class))
+                             .orElseThrow(() -> new UsernameNotFoundException(email));
     }
 }

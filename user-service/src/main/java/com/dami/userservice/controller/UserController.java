@@ -1,7 +1,6 @@
 package com.dami.userservice.controller;
 
 import com.dami.userservice.dto.UserDto;
-import com.dami.userservice.jpa.UserEntity;
 import com.dami.userservice.model.Greeting;
 import com.dami.userservice.model.request.RequestUser;
 import com.dami.userservice.model.response.ResponseUser;
@@ -42,7 +41,7 @@ public class UserController {
     
     @GetMapping("/users")
     public ResponseEntity<List<ResponseUser>> getUsers() {
-        List<UserDto> users = userService.getUserByAll();
+        List<UserDto> users = userService.getAllUsers();
         List<ResponseUser> results = users.stream()
                                           .map(ResponseUser::from)
                                           .collect(Collectors.toList());
